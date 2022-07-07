@@ -22,6 +22,8 @@ public class Main {
                 .setName("Антошка")
                 .build();
         System.out.println("У " + mom + " есть сын, " + son);
+        System.out.println("у " + mom.getName() + (mom.hasAddress() ? " есть адрес" : " не  адреса"));
+        System.out.println("Адрес " + mom.getName() + " " + mom.getAddress());
 
         try {
             // Не хватает обяхательных полей

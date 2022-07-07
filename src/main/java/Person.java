@@ -1,10 +1,11 @@
+import java.util.Objects;
 import java.util.OptionalInt;
 
 public class Person {
-    protected final String name;
-    protected final String surname;
-    protected int age = -1;
-    protected String address;
+    private final String name;
+    private final String surname;
+    private int age = -1;
+    private String address;
 
     public Person(String name, String surname) {
         this.name = name;
@@ -67,6 +68,23 @@ public class Person {
                 "\"surname\":\"" + surname + "\"," +
                 "\"age\":\"" + age + "\"," +
                 "\"address\":\"" + address + "\"}";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Person person = (Person) obj;
+        if (age != -1 && age != person.age) {
+            return false;
+        }
+        return Objects.equals(name, person.name)
+                && Objects.equals(surname, person.surname)
+                && Objects.equals(address, person.address);
     }
 
     @Override
